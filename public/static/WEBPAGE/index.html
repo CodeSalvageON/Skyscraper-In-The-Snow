@@ -7,6 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <link href="/static/WEBPAGE/thingy.css" rel="stylesheet">
 
     <style> 
       body {
@@ -20,8 +21,27 @@
   </head>
   <body class="crt"> 
     <canvas id="game-window"></canvas>
+    <canvas id="elevator-window"></canvas>
+
+    <div id="elevator-controls" class="modal">
+      <div class="modal-content"> 
+        <tt><h2 id="elevator-error" class="error"></h2></tt>
+        <tt><h2 id="current-number-of-suites">Current number of suites: </h2></tt>
+        <form id="elevator-form">
+          <tt><h3>Suite Number: <input type="number" class="text-input" id="suite-number"></h3></tt> 
+        </form>
+      </div> 
+    </div>
+
+    <div id="text-overlay">
+      <tt id="text-overlay-1">Floor: 1</tt> 
+    </div>
+
+    <audio src="/static/WEBPAGE/walking.mp3" id="walk" loop></audio>
     
     <script src="/static/WEBPAGE/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/static/WEBPAGE/skyscraper.js"></script>
+    <script src="/static/WEBPAGE/forms.js"></script>
   </body>
 </html>
