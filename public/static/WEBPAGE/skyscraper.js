@@ -141,6 +141,7 @@ function interactWithSprite () {
       $("#elevator-window").fadeIn(2000);
 
       $("#elevator-controls").fadeIn(2000);
+      optimizeFetch(interval_set[0]);
     }, 2000);
   }
 }

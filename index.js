@@ -111,4 +111,6 @@ http.listen(port, function(){
       console.log("No fix needed.")
     }
   }
+
+  fixSuite();
 });
