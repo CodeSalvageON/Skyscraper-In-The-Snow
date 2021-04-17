@@ -2,12 +2,14 @@
 
 let is_on_elevator = false; // This variable is needed
 let interval_set = ["suite", "chat"];
+let number_of_suites = 0; // Will stop uneeded fetch requests
 
 function getSuites () {
   fetch ("/get-suites")
   .then(response => response.text())
   .then(data => {
     document.getElementById("current-number-of-suites").innerText = "Current Number of Suites: " + data;
+    number_of_suites = parseInt(data);
   })
   .catch(error => {
     throw error;

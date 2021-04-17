@@ -6,9 +6,6 @@ const skyscraper = game_window.getContext("2d");
 const elevator_window = document.getElementById("elevator-window");
 const elevator = elevator_window.getContext("2d");
 
-const text_overlay = document.getElementById("text-overlay");
-const text_overlay_1 = document.getElementById("text-overlay-1");
-
 let is_not_playing = true;
 let is_on_title = true;
 
@@ -43,24 +40,14 @@ game_window.style.backgroundImage = "url('" + default_page + "/static/WEBPAGE/ti
 elevator_window.style.backgroundSize = "cover";
 elevator_window.style.backgroundImage = "url('" + default_page + "/static/WEBPAGE/elevatorinterior.jpg')";
 
-text_overlay.style.zIndex = "100";
-
 // Begin canvas game functions- probably not very optimized, but who the fuck cares
 
 function refreshCanvas () {
-  game_window.style.width = document.body.clientWidth + "px";
-  game_window.style.height = document.body.clientHeight + "px";
+  game_window.style.width = "80vw";
+  game_window.style.height = "80vh";
 
   elevator_window.style.width = document.body.clientWidth + "px";
   elevator_window.style.height = document.body.clientHeight + "px";
-
-  text_overlay.style.width = document.body.clientWidth + "px";
-  text_overlay.style.height = document.body.clientHeight + "px";
-
-  // Render text overlay 
-
-  text_overlay_1.style.left = "10vw";
-  text_overlay_1.style.bottom = "10vh";
 }
 
 function refreshFloor () {
@@ -316,6 +303,10 @@ $(document).keydown(function (event) {
 
     else if (event.which === 69) {
       interactWithSprite();
+    }
+
+    else if (event.which === 70) {
+      
     }
   }
 });
