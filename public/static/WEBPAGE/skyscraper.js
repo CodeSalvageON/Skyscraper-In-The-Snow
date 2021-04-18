@@ -80,6 +80,10 @@ function pressAnyKey () {
   }, 600)
 }
 
+function openChat () {
+  window.open("/chat");
+}
+
 // Below function renders a bunch of sprites. Probably not a good idea considering how fucking laggy the canvas is. Next time, use more than one canvas.
 
 function renderBackgroundUndFloor () {
@@ -306,7 +310,7 @@ $(document).keydown(function (event) {
     }
 
     else if (event.which === 70) {
-      
+      openChat();
     }
   }
 });

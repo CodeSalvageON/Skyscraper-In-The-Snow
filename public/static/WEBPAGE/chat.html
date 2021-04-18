@@ -2,5 +2,44 @@
 <html>
   <head>
     <title>Skyscraper Instant Messanger</title>
+
+    <link href="https://codesalvageon.github.io/magichat/styles/index.css" rel="stylesheet" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <link href="/static/WEBPAGE/thingy.css" rel="stylesheet">
+
+    <link href="/static/WEBPAGE/favicon.png" rel="shortcut icon">
+
+    <style> 
+      body {
+        margin: 0;
+        background-color: black;
+        font-family: 'New Tegomin', serif;
+      }
+
+      #title {
+        color: limegreen;
+      }
+
+      #send-btn {
+        font-family: 'Courier New', monospace;
+      }
+    </style>
   </head>
+  <body class="crt">
+    <tt><h1 class="center" id="title">Skyscraper Instant Messenger</h1></tt>
+    <hr/>
+    <center>
+      <iframe width="800" height="400" class="center" frameBorder="0" src="/msgs"></iframe>
+    </center>
+    <hr/>
+    <form id="message-form" autocomplete="off">
+      <tt><h2 class="center" style="color: limegreen">Message: <input type="text" class="text-input" id="message" maxlength="200" required/><button class="button" id="send-btn">Send</button></h2></tt>
+    </form>
+    <h2 class="error" id="chat-error"><tt></tt></h2>
+    
+    <script src="/static/WEBPAGE/jquery.js"></script>
+    <script src="/static/WEBPAGE/chat.js"></script>
+  </body>
 </html>

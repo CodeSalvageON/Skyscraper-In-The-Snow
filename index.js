@@ -11,9 +11,14 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const io = require('socket.io')(http);
 
+const sanitizer = require('sanitizer');
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+let chat_log = "<link href='/static/WEBPAGE/chat.css' rel='stylesheet'><script src='/static/WEBPAGE/update_chat.js'></script><div id='chatlog'></div>";
+let internal_chatlog = "";
 
 // Google Firestore
 
@@ -89,6 +94,42 @@ app.get('/get-suites', async function (req, res) {
 
 app.get('/players-online', function (req, res) {
   res.send(String(players_online));
+});
+
+app.get('/chat', function (req, res) {
+  const chat = __dirname + "/public/static/WEBPAGE/chat.html";
+
+  res.sendFile(chat);
+});
+
+app.get('/msgs', function (req, res) {
+  res.send(chat_log);
+});
+
+app.get('/lols', function (req, res) {
+  res.send(internal_chatlog);
+});
+
+app.post('/msg', function (req, res) {
+  const username = req.body.username;
+  const message = req.body.message;
+
+  const cleaned_username = sanitizer.escape(username);
+  const cleaned_message = sanitizer.escape(message);
+
+  if (cleaned_message === null || cleaned_message === undefined || cleaned_message === "" || username === null || username === undefined || username === "") {
+    res.send("empty-message-error");
+  }  
+
+  else if (cleaned_message.length > 200 || cleaned_username.length > 200) {
+    res.send("long-message-error");
+  }
+
+  else {
+    internal_chatlog = internal_chatlog + "<h3 class='message'><tt><b>" + cleaned_username + ": </b>" + cleaned_message + "</tt></h3><span></span>";
+
+    res.send("success");
+  }
 });
 
 http.listen(port, function(){
