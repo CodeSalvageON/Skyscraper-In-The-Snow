@@ -17,6 +17,10 @@
         background-color: black;
         font-family: 'New Tegomin', serif;
       }
+
+      #suite-canvas {
+        background-color: gray;
+      }
     </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +41,22 @@
           <tt><h3>Suite Number: <input type="number" class="text-input" id="suite-number"></h3></tt> 
           <button class="button"><tt>Go to floor</tt></button>
         </form>
+        <button id="return-to-lobby" class="button"><tt>Return to the lobby</tt></button>
+        <button id="create-suite" class="button"><tt>Create a suite</tt></button>
       </div> 
     </div>
 
+    <div id="suite-div">
+      <center>
+        <button class="button" id="go-back-button"><tt>Go back to the elevator</tt></button><button id="refresh-canvas" class="button"><tt>Refresh Suite</tt></button>
+        <br/>
+        <canvas id="suite-canvas" width="800" height="600"> 
+        </canvas>
+      </center>
+    </div>
+
     <audio src="/static/WEBPAGE/walking.mp3" id="walk" loop></audio>
+    <audio src="/static/WEBPAGE/track.mp3" id="track"></audio>
     
     <script src="/static/WEBPAGE/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -48,5 +64,7 @@
     <script src="/static/WEBPAGE/skyscraper.js"></script>
     <script src="/static/WEBPAGE/forms.js"></script>
     <script src="/static/WEBPAGE/makeid.js"></script>
+    <script src="/static/WEBPAGE/generate.js"></script>
+    <script src="/static/WEBPAGE/buttons.js"></script>
   </body>
 </html>

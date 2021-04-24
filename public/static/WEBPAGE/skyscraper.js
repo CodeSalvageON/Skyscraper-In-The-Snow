@@ -31,6 +31,7 @@ const room_look_border = [Math.floor(game_window.width) + 100, Math.floor(-game_
 // From here, start the styling of the page
 
 $("#elevator-window").hide();
+$("#suite-div").hide();
 
 document.body.style.overflow = "hidden";
 
@@ -151,7 +152,7 @@ function spriteJump () {
     setTimeout(function () {
       clearScreen();
       renderBackgroundUndFloor();
-    }, 10);
+    }, 30);
   }
 
   setTimeout(function () {
@@ -160,11 +161,13 @@ function spriteJump () {
       setTimeout(function () {
         clearScreen();
         renderBackgroundUndFloor();
-      }, 10);
+      }, 30);
     }
   }, 50);
 
-  jump_count_adder = false;
+  setTimeout(function () {
+    jump_count_adder = false;
+  }, 1000);
 }
 
 function countPace () { 
@@ -312,6 +315,10 @@ $(document).keydown(function (event) {
     else if (event.which === 70) {
       openChat();
     }
+
+    else if (event.which === 32) {
+      spriteJump();
+    }
   }
 });
 
@@ -357,6 +364,8 @@ $(this).keypress(function (event) {
 
               fadeInScreen();
               is_not_playing = false;
+
+              document.getElementById("track").play();
             }, 2000);
           }, 2000);
         }, 2000);

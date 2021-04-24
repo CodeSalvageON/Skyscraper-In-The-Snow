@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a Suite</title>
+
+    <link href="https://codesalvageon.github.io/magichat/styles/index.css" rel="stylesheet" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <link href="/static/WEBPAGE/thingy.css" rel="stylesheet">
+
+    <link href="/static/WEBPAGE/favicon.png" rel="shortcut icon">
+
+    <link href="/static/WEBPAGE/create.css" rel="stylesheet">
+  </head>
+  <body class="crt">
+    <h1 class="center"><tt>Create a Suite</tt></h1>
+    <tt><h3 class="center" id="mouse-position">Mouse Position:</h3></tt>
+    <tt><h3 class="center" id="mouse-tutorial">Press SHIFT to lock the mouse coordinates.</h3></tt>
+    <div class="center">
+      <button class="button" id="open-item-menu"><tt>Choose from menu of items</tt></button><button class="button" id="import-image"><tt>Import image from link</tt></button><button class="button" id="delete-item"><tt>Clear Canvas</tt></button><button class="button" id="create-suite-lol"><tt>Create Suite</tt></button> 
+    </div>
+    <div class="center">
+      <canvas id="creation-canvas" width="800" height="600"> 
+      </canvas> 
+    </div>
+
+    <div class="modal" id="item-menu">
+      <div class="modal-content">
+        <span class="close" id="close-item-menu">&times;</span>
+        <form id="item-menu-form"> 
+          <h3 class="error" id="item-menu-error"><tt></tt></h3>
+          <h3><tt>Item Width: <input type="number" id="item-width" class="text-input" required/></tt></h3>
+          <h3><tt>Item Height: <input type="number" id="item-height" class="text-input" required/></tt></h3>
+          <h3><tt>Item X: <input type="number" id="item-x" class="text-input" required/></tt></h3>
+          <h3><tt>Item Y: <input type="number" id="item-y" class="text-input" required/></tt></h3>
+          <h3><tt>Choose an item: <select class="text-input" id="item-chosen" required>
+            <option></option>
+            <option value="cctv">CCTV Camera</option>
+            <option value="elevator">Elevator Door</option>
+            <option value="plant">Potted Plant</option>
+            <option value="computer">Computer</option>
+            <option value="table">Table</option>
+            <option value="bourbon">Bourbon</option>
+            <option value="wallphone">Phone</option>
+            <option value="tv">TV</option>
+          </select></tt></h3><button class="button"><tt>Add item</tt></button>
+        </form> 
+      </div>
+    </div>
+
+    <div class="modal" id="import-menu">
+      <div class="modal-content">
+        <span class="close" id="close-import-menu">&times;</span>
+        <tt><h3 class="error" id="import-error"><tt></tt></h3></tt>
+        <form id="import-form">
+           <h3><tt>Image URL: <input type="text" id="url" class="text-input"/></tt></h3>
+           <h3><tt>Image width: <input type="number" id="image-width" class="text-input"/></tt></h3>
+           <h3><tt>Image height: <input type="number" id="image-height" class="text-input"/></tt></h3>
+           <h3><tt>Image X: <input type="number" class="text-input" id="image-x"/></tt></h3>
+           <h3><tt>Image Y: <input type="number" class="text-input" id="image-y"/></tt></h3>
+           <button class="button"><tt>Import Image</tt></button>
+        </form>
+      </div> 
+    </div>
+
+    <div class="modal" id="suite-number-modal">
+      <div class="modal-content">
+        <h3><tt id="suite-number-thingy">Your suite number is: </tt></h3>
+        <h3><tt>You may now close this window.</tt></h3>
+      </div> 
+    </div>
+    
+    <script src="/static/WEBPAGE/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/konva@7.2.5/konva.min.js"></script>
+    <script src="/static/WEBPAGE/makeid.js"></script>
+    <script src="/static/WEBPAGE/buttons.js"></script>
+    <script src="/static/WEBPAGE/create.js"></script>
+    <script src="/static/WEBPAGE/forms.js"></script>
+    <script src="/static/WEBPAGE/drag.js"></script>
+  </body>
+</html>

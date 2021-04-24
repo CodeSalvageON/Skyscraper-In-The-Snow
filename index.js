@@ -110,6 +110,12 @@ app.get('/lols', function (req, res) {
   res.send(internal_chatlog);
 });
 
+app.get('/create', function (req, res) {
+  const create = __dirname + "/public/static/WEBPAGE/create.html";
+
+  res.sendFile(create);
+});
+
 app.post('/msg', function (req, res) {
   const username = req.body.username;
   const message = req.body.message;
@@ -130,6 +136,44 @@ app.post('/msg', function (req, res) {
 
     res.send("success");
   }
+});
+
+app.post('/post-to-net', async function (req, res) {
+  const array = req.body.array;
+  console.log(array + " was sent....");
+
+  const suiteRef = db.collection("suite").doc("chatlog");
+  const suite = await suiteRef.get();
+
+  await suiteRef.set({
+    log : suite.data().log + "/*)95f-+" + array
+  });
+
+  const suiteArray = suite.data().log.split("/*)95f-+");
+
+  let number_of_suites = 0;
+  
+  for (i = 0; i < suiteArray.length; i++) {
+    number_of_suites = number_of_suites + 1;
+  }
+
+  res.send(String(number_of_suites + 1));
+});
+
+app.post("/retrieve-suite", async function (req, res) {
+  const suite_thing = req.body.suite;
+  const parsed_suite = parseInt(suite_thing);
+
+  console.log(suite_thing);
+  console.log("suite thingy called");
+
+  const suiteRef = db.collection("suite").doc("chatlog");
+  const suite = await suiteRef.get();
+
+  const suiteArray = suite.data().log.split("/*)95f-+");
+  
+  console.log(suiteArray[suite_thing]);
+  res.send(suiteArray[parseInt(suite_thing - 1)]);
 });
 
 http.listen(port, function(){

@@ -1,0 +1,15 @@
+/* CSS for the creation page */ 
+
+body {
+  background-color: black;
+}
+
+h1, h2, h3, h4 {
+  color: limegreen;
+}
+
+#creation-canvas {
+  width: 800px;
+  height: 600px;
+  background-color: gray;
+}
